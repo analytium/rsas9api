@@ -1,0 +1,21 @@
+#' @title get_group_info
+#'
+#' @description Gets the group information and its associated groups and users by a group name.
+#'
+#' @param url URL of the server with installed SAS9API.
+#' @param repositoryName Repository name.
+#' @param groupName Group name.
+#' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
+#'
+#' @importFrom httr GET
+#'
+#' @export get_group_info
+get_group_info <- function(url, repositoryName = "Foundation",
+                           groupName, asDataFrame = FALSE){
+    endpoint <- sprintf("/sas/meta/groups/%s", groupName)
+    parameters <- list(repositoryName = repositoryName)
+    response <- httr::GET(url = url,
+                          path = URLencode(endpoint),
+                          query = parameters)
+    return_response(response, asDataFrame = asDataFrame)
+}
