@@ -17,7 +17,7 @@
 delete_dataset <- function(url=NULL, repositoryName = "Foundation",
                            serverName=NULL, serverUrl=NULL, serverPort=NULL,
                            libraryName=NULL, datasetName=NULL, asDataFrame = FALSE){
-    serverAddress = NULL
+    serverAddress <- NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("/sas/servers/%s/libraries/%s/datasets/%s/data",
                             serverName, libraryName, datasetName)

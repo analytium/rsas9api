@@ -22,7 +22,7 @@ execute_command <- function(url=NULL,
                             repositoryName = "Foundation",
                             serverName=NULL, serverUrl=NULL, serverPort=NULL,
                             logEnabled=TRUE, command, asDataFrame = FALSE){
-    serverAddress = NULL
+    serverAddress <- NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("/sas/servers/%s/cmd", serverName)
     } else if (!missing(serverUrl) & !missing(serverPort)) {

@@ -24,7 +24,7 @@ insert_data <- function(url=NULL,  repositoryName = "Foundation",
                         serverName=NULL, serverUrl=NULL, serverPort=NULL,
                         libraryName, datasetName, byKey=NULL, data,
                         asDataFrame = FALSE){
-    serverAddress = NULL
+    serverAddress <- NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("/sas/servers/%s/libraries/%s/datasets/%s/data",
                             serverName, libraryName, datasetName)

@@ -22,7 +22,7 @@
 replace_all_data <- function(url, repositoryName = "Foundation",
                              serverName=NULL, serverUrl=NULL, serverPort=NULL,
                              libraryName, datasetName, data, asDataFrame = FALSE){
-    serverAddress = NULL
+    serverAddress <- NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("/sas/servers/%s/libraries/%s/datasets/%s/data",
                             serverName, libraryName, datasetName)
