@@ -1,7 +1,7 @@
 Package: SAS9API
 Type: Package
 Title: Requests for SAS9API endpoints
-Version: 1.0.0
+Version: 1.0.1
 Author: Olga Pavlova (Analytium)
 Maintainer: Olga Pavlova <olga.pavlova@analytium.co.uk>
 Description: More about what it does (maybe more than one line)
