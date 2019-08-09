@@ -6,7 +6,7 @@
 \usage{
 delete_dataset(url = NULL, repositoryName = "Foundation",
   serverName = NULL, serverUrl = NULL, serverPort = NULL,
-  libraryName, datasetName, asDataFrame = FALSE)
+  libraryName = NULL, datasetName = NULL, asDataFrame = FALSE)
 }
 \arguments{
 \item{url}{URL of the server with installed SAS9API.}
