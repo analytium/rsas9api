@@ -15,6 +15,7 @@
 #' @export get_dataset_info
 get_dataset_info <- function(url, serverName=NULL, serverUrl=NULL, serverPort=NULL,
                              libraryName, datasetName, asDataFrame = FALSE){
+    serverAddress = NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("sas/servers/%s/libraries/%s/datasets/%s",
                             serverName, libraryName, datasetName)

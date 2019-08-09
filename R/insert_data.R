@@ -14,6 +14,7 @@
 #' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
 #'
 #' @importFrom httr PUT
+#' @importFrom httr content_type_json
 #'
 #' @examples insert_data(url, serverUrl, serverPort, libraryName, datasetName,
 #' data = "[{'Customer_Country': 'AU'}]")
@@ -23,6 +24,7 @@ insert_data <- function(url=NULL,  repositoryName = "Foundation",
                         serverName=NULL, serverUrl=NULL, serverPort=NULL,
                         libraryName, datasetName, byKey=NULL, data,
                         asDataFrame = FALSE){
+    serverAddress = NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("/sas/servers/%s/libraries/%s/datasets/%s/data",
                             serverName, libraryName, datasetName)
@@ -36,7 +38,7 @@ insert_data <- function(url=NULL,  repositoryName = "Foundation",
     parameters <- c(serverAddress, list(repositoryName = repositoryName,
                                         byKey = byKey))
     response <- httr::PUT(url = url,
-                          content_type_json(),
+                          httr::content_type_json(),
                           path = URLencode(endpoint),
                           query = parameters,
                           body = data)

@@ -12,6 +12,7 @@
 #' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
 #'
 #' @importFrom httr PUT
+#' @importFrom httr content_type_json
 #'
 #' @examples execute_command(url, serverUrl, serverPort,
 #' command = "proc print data=sashelp.class; run;", logEnabled = TRUE)
@@ -21,6 +22,7 @@ execute_command <- function(url=NULL,
                             repositoryName = "Foundation",
                             serverName=NULL, serverUrl=NULL, serverPort=NULL,
                             logEnabled=TRUE, command, asDataFrame = FALSE){
+    serverAddress = NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("/sas/servers/%s/cmd", serverName)
     } else if (!missing(serverUrl) & !missing(serverPort)) {
@@ -32,7 +34,7 @@ execute_command <- function(url=NULL,
     parameters <- c(serverAddress, list(repositoryName = repositoryName,
                                         logEnabled = logEnabled))
     response <- httr::PUT(url = url,
-                          content_type_json(),
+                          httr::content_type_json(),
                           path = URLencode(endpoint),
                           query = parameters,
                           body = command)

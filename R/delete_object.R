@@ -10,6 +10,7 @@
 #' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
 #'
 #' @importFrom httr POST
+#' @importFrom httr content_type_json
 #'
 #' @export delete_object
 delete_object <- function(url, repositoryName = "Foundation",
@@ -21,7 +22,7 @@ delete_object <- function(url, repositoryName = "Foundation",
                        sourceName = sourceName,
                        publicType = publicType)
     response <- httr::POST(url = url,
-                           content_type_json(),
+                           httr::content_type_json(),
                            path = URLencode(endpoint),
                            query = parameters)
     return_response(response, asDataFrame = asDataFrame)

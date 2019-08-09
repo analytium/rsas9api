@@ -22,6 +22,7 @@ retrieve_data <- function(url, repositoryName = "Foundation",
                           libraryName, datasetName,
                           limit = 100, offset = 0, filter = NULL,
                           asDataFrame = FALSE){
+    serverAddress = NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("sas/servers/%s/libraries/%s/datasets/%s/data",
                             serverName, libraryName, datasetName)

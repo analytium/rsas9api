@@ -13,6 +13,7 @@
 #' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
 #'
 #' @importFrom httr POST
+#' @importFrom httr content_type_json
 #'
 #' @examples replace_all_data(url, serverUrl, serverPort, libraryName, datasetName,
 #' data = '[{"Name": "Andrew","Sex": "M","Age": 55,"Height": 184,"Weight": 91}]')
@@ -21,6 +22,7 @@
 replace_all_data <- function(url, repositoryName = "Foundation",
                              serverName=NULL, serverUrl=NULL, serverPort=NULL,
                              libraryName, datasetName, data, asDataFrame = FALSE){
+    serverAddress = NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("/sas/servers/%s/libraries/%s/datasets/%s/data",
                             serverName, libraryName, datasetName)
@@ -33,7 +35,7 @@ replace_all_data <- function(url, repositoryName = "Foundation",
     }
     parameters <- c(serverAddress, list(repositoryName = repositoryName))
     response <- httr::POST(url = url,
-                           content_type_json(),
+                           httr::content_type_json(),
                            path = URLencode(endpoint),
                            query = parameters,
                            body = data)

@@ -11,7 +11,6 @@
 get_license_info <- function(url, asDataFrame = FALSE){
     endpoint <- "/sas/license/"
     response <- httr::GET(url = url,
-                          path = URLencode(endpoint),
-                          query = parameters)
+                          path = URLencode(endpoint))
     return_response(response, asDataFrame = asDataFrame)
 }

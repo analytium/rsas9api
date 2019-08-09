@@ -14,6 +14,7 @@
 #' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
 #'
 #' @importFrom httr POST
+#' @importFrom httr content_type_json
 #'
 #' @examples create_library(url, serverName, libraryName = "new_lib_1",
 #' engine = "V9", displayName = "New Library 1", path = "/pub/portal/data",
@@ -31,7 +32,7 @@ create_library <- function(url, repositoryName = "Foundation", serverName=NULL,
                        location = location,
                        isPreassigned = isPreassigned)
     response <- httr::POST(url = url,
-                           content_type_json(),
+                           httr::content_type_json(),
                            path = URLencode(endpoint),
                            query = parameters)
     return_response(response, asDataFrame = asDataFrame)

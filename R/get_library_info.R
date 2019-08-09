@@ -16,6 +16,7 @@
 get_library_info <- function(url, repositoryName = "Foundation",
                              serverName=NULL, serverUrl=NULL, serverPort=NULL,
                              libraryName, asDataFrame = FALSE){
+    serverAddress = NULL
     if (!missing(serverName)) {
         endpoint <- sprintf("sas/servers/%s/libraries/%s",
                             serverName, libraryName)
