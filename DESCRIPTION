@@ -1,7 +1,7 @@
 Package: SAS9API
 Type: Package
 Title: Requests for SAS9API endpoints
-Version: 0.2.3
+Version: 1.0.0
 Author: Olga Pavlova (Analytium)
 Maintainer: Olga Pavlova <olga.pavlova@analytium.co.uk>
 Description: More about what it does (maybe more than one line)
@@ -13,6 +13,5 @@ Imports:
     RCurl, 
     httr, 
     jsonlite
-URL: http://yihui.name/knitr/
-BugReports: https://github.com/yihui/knitr/issues
+BugReports: https://github.com/anlaytium-group/rsas9api/issues
 RoxygenNote: 6.1.1
