@@ -21,11 +21,11 @@ move_object <- function(url, repositoryName = "Foundation",
                         sourceLocation, sourceName, publicType, destinationLocation,
                         asDataFrame = FALSE){
     endpoint <- "/sas/meta/objects/move"
-    parameters <- c(repositoryName = repositoryName,
-                    sourceLocation = sourceLocation,
-                    sourceName = sourceName,
-                    publicType = publicType,
-                    destinationLocation = destinationLocation)
+    parameters <- list(repositoryName = repositoryName,
+                       sourceLocation = sourceLocation,
+                       sourceName = sourceName,
+                       publicType = publicType,
+                       destinationLocation = destinationLocation)
     response <- httr::POST(url = url,
                            httr::content_type_json(),
                            path = URLencode(endpoint),
