@@ -13,7 +13,7 @@ replace_all_data(url, repositoryName = "Foundation", serverName = NULL,
 
 \item{repositoryName}{Repository name.}
 
-\item{serverName}{Workspace server name. Either server name or server url with server port should be provided.}
+\item{serverName}{Workspace server name.}
 
 \item{serverUrl}{Workspace server URL.}
 
@@ -29,6 +29,8 @@ replace_all_data(url, repositoryName = "Foundation", serverName = NULL,
 }
 \description{
 Replaces all data in the dataset with input data.
+Workspace server can be connected either by server name or by server url with server port.
+If none of these connections are provided, default workspace server from API configuration file will be used.
 }
 \examples{
 replace_all_data(url, serverUrl, serverPort, libraryName, datasetName,

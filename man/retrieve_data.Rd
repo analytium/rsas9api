@@ -13,7 +13,7 @@ retrieve_data(url, repositoryName = "Foundation", serverName = NULL,
 
 \item{repositoryName}{Repository name.}
 
-\item{serverName}{Workspace server name. Either server name or server url with server port should be provided.}
+\item{serverName}{Workspace server name.}
 
 \item{serverUrl}{Workspace server URL.}
 
@@ -33,4 +33,6 @@ retrieve_data(url, repositoryName = "Foundation", serverName = NULL,
 }
 \description{
 Retrieves data from the dataset by a dataset name and a library name.
+Workspace server can be connected either by server name or by server url with server port.
+If none of these connections are provided, default workspace server from API configuration file will be used.
 }

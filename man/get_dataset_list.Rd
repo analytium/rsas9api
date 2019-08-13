@@ -10,7 +10,7 @@ get_dataset_list(url, serverName = NULL, serverUrl = NULL,
 \arguments{
 \item{url}{URL of the server with installed SAS9API.}
 
-\item{serverName}{Workspace server name. Either server name or server url with server port should be provided.}
+\item{serverName}{Workspace server name.}
 
 \item{serverUrl}{Workspace server URL.}
 
@@ -22,4 +22,6 @@ get_dataset_list(url, serverName = NULL, serverUrl = NULL,
 }
 \description{
 Gets the list of datasets for defined library.
+Workspace server can be connected either by server name or by server url with server port.
+If none of these connections are provided, default workspace server from API configuration file will be used.
 }

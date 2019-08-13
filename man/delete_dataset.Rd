@@ -13,7 +13,7 @@ delete_dataset(url = NULL, repositoryName = "Foundation",
 
 \item{repositoryName}{Repository name.}
 
-\item{serverName}{Server name. Either server name or server url with server port should be provided.}
+\item{serverName}{Server name.}
 
 \item{serverUrl}{Workspace server URL.}
 
@@ -27,4 +27,6 @@ delete_dataset(url = NULL, repositoryName = "Foundation",
 }
 \description{
 Deletes dataset from defined library.
+Workspace server can be connected either by server name or by server url with server port.
+If none of these connections are provided, default workspace server from API configuration file will be used.
 }

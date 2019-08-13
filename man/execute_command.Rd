@@ -13,7 +13,7 @@ execute_command(url = NULL, repositoryName = "Foundation",
 
 \item{repositoryName}{Repository name.}
 
-\item{serverName}{Workspace server name. Either server name or server url with server port should be provided.}
+\item{serverName}{Workspace server name.}
 
 \item{serverUrl}{Workspace server URL.}
 
@@ -27,6 +27,8 @@ execute_command(url = NULL, repositoryName = "Foundation",
 }
 \description{
 Sends a SAS command to the workspace server for execution.
+Workspace server can be connected either by server name or by server url with server port.
+If none of these connections are provided, default workspace server from API configuration file will be used.
 }
 \examples{
 execute_command(url, serverUrl, serverPort,

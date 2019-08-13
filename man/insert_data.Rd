@@ -13,7 +13,7 @@ insert_data(url = NULL, repositoryName = "Foundation",
 
 \item{repositoryName}{Repository name.}
 
-\item{serverName}{Workspace server name. Either server name or server url with server port should be provided.}
+\item{serverName}{Workspace server name.}
 
 \item{serverUrl}{Workspace server URL.}
 
@@ -31,6 +31,8 @@ insert_data(url = NULL, repositoryName = "Foundation",
 }
 \description{
 Inserts data into the dataset or replaces data by key.
+Workspace server can be connected either by server name or by server url with server port.
+If none of these connections are provided, default workspace server from API configuration file will be used.
 }
 \examples{
 insert_data(url, serverUrl, serverPort, libraryName, datasetName,
