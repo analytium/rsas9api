@@ -4,8 +4,8 @@ Title: Requests for SAS9API endpoints
 Version: 1.0.1
 Author: Olga Pavlova (Analytium)
 Maintainer: Olga Pavlova <olga.pavlova@analytium.co.uk>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package can be used to send requests to SAS9API endpoints.
+    To use it you need to have a link to SAS9API proxy.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
