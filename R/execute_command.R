@@ -1,10 +1,12 @@
 #' @title execute_command
 #'
 #' @description Sends a SAS command to the workspace server for execution.
+#' Workspace server can be connected either by server name or by server url with server port.
+#' If none of these connections are provided, default workspace server from API configuration file will be used.
 #'
 #' @param url URL of the server with installed SAS9API.
 #' @param repositoryName Repository name.
-#' @param serverName Workspace server name. Either server name or server url with server port should be provided.
+#' @param serverName Workspace server name.
 #' @param serverUrl Workspace server URL.
 #' @param serverPort Workspace server port.
 #' @param logEnabled logical. Enables log output in endpoint response.
@@ -29,7 +31,8 @@ execute_command <- function(url=NULL,
         endpoint <- "sas/cmd"
         serverAddress <- list(serverUrl = serverUrl, serverPort = serverPort)
     } else {
-        stop("Either serverName OR serverUrl with serverPort should be defined")
+        warning("Default workspace server from API configuration file is used")
+        endpoint <- "/sas/cmd"
     }
     parameters <- c(serverAddress, list(repositoryName = repositoryName,
                                         logEnabled = logEnabled))

@@ -1,10 +1,12 @@
 #' @title retrieve_data
 #'
 #' @description Retrieves data from the dataset by a dataset name and a library name.
+#' Workspace server can be connected either by server name or by server url with server port.
+#' If none of these connections are provided, default workspace server from API configuration file will be used.
 #'
 #' @param url URL of the server with installed SAS9API.
 #' @param repositoryName Repository name.
-#' @param serverName Workspace server name. Either server name or server url with server port should be provided.
+#' @param serverName Workspace server name.
 #' @param serverUrl Workspace server URL.
 #' @param serverPort Workspace server port.
 #' @param libraryName Library name.
@@ -31,7 +33,9 @@ retrieve_data <- function(url, repositoryName = "Foundation",
                             libraryName, datasetName)
         serverAddress <- list(serverUrl = serverUrl, serverPort = serverPort)
     } else {
-        stop("Either serverName OR serverUrl with serverPort should be defined")
+        warning("Default workspace server from API configuration file is used")
+        endpoint <- sprintf("sas/libraries/%s/datasets/%s/data",
+                            libraryName, datasetName)
     }
     parameters <- c(serverAddress, list(repositoryName = repositoryName,
                                         limit = limit,

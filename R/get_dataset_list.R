@@ -1,9 +1,11 @@
 #' @title get_dataset_list
 #'
 #' @description Gets the list of datasets for defined library.
+#' Workspace server can be connected either by server name or by server url with server port.
+#' If none of these connections are provided, default workspace server from API configuration file will be used.
 #'
 #' @param url URL of the server with installed SAS9API.
-#' @param serverName Workspace server name. Either server name or server url with server port should be provided.
+#' @param serverName Workspace server name.
 #' @param serverUrl Workspace server URL.
 #' @param serverPort Workspace server port.
 #' @param libraryName Library name.
@@ -22,7 +24,8 @@ get_dataset_list <- function(url, serverName=NULL, serverUrl=NULL, serverPort=NU
         endpoint <- sprintf("sas/libraries/%s/datasets", libraryName)
         serverAddress <- list(serverUrl = serverUrl, serverPort = serverPort)
     } else {
-        stop("Either serverName OR serverUrl with serverPort should be defined")
+        warning("Default workspace server from API configuration file is used")
+        endpoint <- sprintf("sas/libraries/%s/datasets", libraryName)
     }
     response <- httr::GET(url = url,
                           path = URLencode(endpoint),
