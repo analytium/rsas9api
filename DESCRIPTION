@@ -1,4 +1,4 @@
-Package: SAS9API
+Package: rsas9api
 Type: Package
 Title: Requests for SAS9API endpoints
 Version: 1.0.1
