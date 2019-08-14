@@ -12,7 +12,7 @@
 #' @param libraryName Library name.
 #' @param datasetName Dataset name.
 #' @param byKey Dataset key for record matching.
-#' @param data Data in JSON format.
+#' @param data Data in JSON format. If data is in a file use upload_file(path = "/path"). See examples.
 #' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
 #'
 #' @importFrom httr PUT
@@ -20,6 +20,9 @@
 #'
 #' @examples insert_data(url, serverUrl, serverPort, libraryName, datasetName,
 #' data = "[{'Customer_Country': 'AU'}]")
+#'
+#' @examples insert_data(url, serverUrl, serverPort, libraryName, datasetName,
+#' data = upload_file(path = "D:/My Folder/data.txt"))
 #'
 #' @export insert_data
 insert_data <- function(url=NULL,  repositoryName = "Foundation",

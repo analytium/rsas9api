@@ -11,7 +11,7 @@
 #' @param serverPort Workspace server port.
 #' @param libraryName Library name.
 #' @param datasetName Dataset name.
-#' @param data Data in JSON format.
+#' @param data Data in JSON format. If data is in a file use upload_file(path = "/path"). See examples.
 #' @param asDataFrame logical. Determines the content of the response returned by the function. If FALSE, the function will return full JSON response. If TRUE, the function will return only payload part of the response transformed into a dataframe.
 #'
 #' @importFrom httr POST
@@ -19,6 +19,9 @@
 #'
 #' @examples replace_all_data(url, serverUrl, serverPort, libraryName, datasetName,
 #' data = '[{"Name": "Andrew","Sex": "M","Age": 55,"Height": 184,"Weight": 91}]')
+#'
+#' @examples replace_all_data(url, serverUrl, serverPort, libraryName, datasetName,
+#' data = upload_file(path = "D:/My Folder/data.txt"))
 #'
 #' @export replace_all_data
 replace_all_data <- function(url, repositoryName = "Foundation",
